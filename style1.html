@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Bad+Script" rel="stylesheet">
+        <style>
+            div{
+                color: #0000ff;
+                font-size:24px;
+                text-decoration: line-through;
+                font-family:serif, 'Lucida Console', 'Lucida Sans Regular';
+                display:block|inline|none;
+            }
+            p{
+                color:rgb(180,180,20);
+                font-family: 'Bad Script', Arial, Helvetica, sans-serif;
+                font-size: 32px;
+                font-weight:bold;
+                text-decoration: underline
+            }
+            span{font-size: 30px} /*tag*/
+            #test{font-size: 50px;color: grey} /*id를 의미함. html문서에서 딱 1번만 나와야함. 고유성*/
+            #test2{font-size: 50px;color:crimson}
+            #test2 span{font-size: 50px;color:mediumblue}
+            .test{background:olive; color: orange} /*class는 반복해서 나올 수 있음. 그룹*/
+            .test2{background:blueviolet; color: orange}
+            /*우선순위는 id>class>tag순서. inline스타일이 가장 우선이다.*/
+            h1 span{background: gray}
+            h1 div span{color: #ff0000}
+            h1 > div span{text-decoration: underline}
+        </style>
+    </head>
+    <body style="font-size:12px">
+            <h1>text
+                    <div><span>span1</span><span id="test2"><span>aaaa</span></span></div>
+                    <span>span2</span>
+                </h1>
+                <span>aaaa</span><span>aaaa</span><span>aaaa</span><span>aaaa</span>
+                <span>aaaa</span><span>aaaa</span><span>aaaa</span>
+                <span>aaaa</span><span>aaaa</span><span>aaaa</span><span>aaaa</span>
+                <span>bbbb</span><span>bbbb</span><span>bbbb</span><span>bbbb</span>
+                <span>bbbb</span><span class="test">bbbb</span><span>bbbb</span><span>bbbb</span>
+                <span>bbbb</span><span class="test2">bbbb</span><span>bbbb</span><span>bbbb</span>
+        <div>test1</div>
+        <div>test2</div>
+        <p>test3</p>
+        <p>test4</p>
+        <section style="color:olivedrab;font-size:800%;">section1
+            <section style="font-size:60%">section2
+                <section style="font-size:60%">section3</section>
+            </section>
+        </section>
+    </body>
+</html>
