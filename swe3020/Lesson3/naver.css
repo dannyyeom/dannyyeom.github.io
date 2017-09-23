@@ -17,7 +17,7 @@ body{margin: 0}
 .top h1 img{
     width: 150px;
 }
-.top .search .searckBox{
+.top .searckBox{
     display: inline-block;
     height:45px;width:500px;box-sizing:border-box;
     border:3px solid #6b6;
