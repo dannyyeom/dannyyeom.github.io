@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <style></style>
+        <script>
+            //long and heavy -> 불편함       
+        </script>
+    </head>
+    <body>
+        <div onclick=
+        "console.log('clicked');";
+        "console.log('clicked');">click test</div>
+
+        
+        <script>
+            //long and heavy해도 이전까지의 body내용은 다 그려지기 때문에 괜찮음
+            //스크립트 태그는 body의 마지막에 쓰는게 좋음
+            //자바스립트는 위에서부터 아래로 순서대로 실행됨
+            console.log("hello, world","여러개도 가능",123,"타입도 상관 없음",true);
+            //System.out.print랑 비슷한거
+        </script>
+        <script src = "js1.js"> //async는 load해온걸 나중에 출력하도록 해주는 것</script>
+        <script>
+            console.log("final",a);
+        </script>
+    </body>
+</html>
