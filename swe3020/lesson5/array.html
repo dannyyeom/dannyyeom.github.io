@@ -1,0 +1,109 @@
+<html>
+<head>
+</head>
+<body>
+<script>
+    var arr = [];
+    console.log(arr.length);
+    arr[100] = 10;
+    //여기는 그냥 java의 배열같음
+    console.log(arr.length);
+
+    arr.abc = 'abc';
+    console.log(arr.abc);
+
+    arr["100"] = 20;
+    //오브젝트에서 속성을 지정하는 것과 동일하게 작동한다.
+    console.log(arr[100]);
+
+    //##배열관련 메소드
+    var arr2 = [100, 50, 1, 4, 5];
+    arr2.sort(); //기본은 사전식으로 정렬함
+    console.log(arr2);
+    //그냥 이렇게만 하면 적용 안됨
+    //자바스크립트에서 배열을 sort하면 자기 자신이 바뀌는게 아니라 바뀐 값을 리턴함.
+    var compartTo = function(a,b){
+        if(a>b) return 1;
+        else if(a==b) return 0;
+        else return -1;
+    };
+    arr2.sort(compartTo);
+    console.log(arr2);
+    /*var sort = function(f){
+        for(var i = 0; i < arr2.length; i++){
+            var a = arr2[i];
+            for(var j = 0; j < arr2.length; j++){
+                var b = arr2[j];
+                if(f(a,b)==1){
+
+                }else if(f(a,b)==0){
+                    
+                }else{
+
+                }
+            }
+        }
+    }대강 이런 함수가 내장됨, 알아야만 쓸 수 있음*/
+
+    // stack
+    arr2.push(1,2,3,4,5,6,7,8,9);
+    console.log(arr2);
+    arr2.pop();
+    arr2.pop();
+    arr2.pop();
+    console.log(arr2);
+
+    //queue
+    arr2.shift();
+    arr2.shift();
+    console.log(arr2);
+
+
+    var sum = 0;
+    for(var i = 0; i < arr2.length; i++){
+        sum += arr2[i];
+    }
+    console.log(sum);
+    
+    //for문을 다 작성하지 않고 함수로 안전하게 사용 가능
+    sum = 0;
+    var f = function(v, index){
+        sum+=v;
+    }
+    arr2.forEach(f);
+    console.log("arr::forEach", sum);
+    /*arr2.forEach(function(v, index){
+        console.log(v, index);
+        sum+=v;
+    });랑 같은 의미임.
+    */
+    var forEach = function(f){
+        for(var i = 0; i < arr2.length; i++){
+            f(arr2[i], i);
+        }
+    };
+    sum = 0;
+    forEach(f);
+    console.log('forEach Function', sum);
+
+    //스코프 scope - 식별자의 이름을 인실할 수 있는 범위
+    var ga=100, gb=200;
+    var outer = function(oa, ob){
+        var ola = oa*2, olb = ob*2;
+        var inner = function(ia, ib){
+            var ila = ia*2, ilb = ib*2;
+            console.log(
+                'oa', oa, 'ob', ob,
+                'ola', ola, 'olb', olb,
+                'ia', ia, 'ib', ib,
+                'ila', ila, 'ilb', ilb,
+                'ga', ga, 'gb', gb
+                //자신을 감싸고 있는 가까운 범위부터 값을 찾음, 밖에서 안으로 들어갈 수는 없음
+            )
+        };
+        inner(ola, olb)
+    };
+    outer(1,2);
+</script>
+</body>
+</html>

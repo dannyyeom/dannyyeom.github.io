@@ -1,0 +1,35 @@
+<html>
+<head></head>
+<body>
+    <script>
+        //리터럴 - 더이상 쪼갤 수 없는 값의 표현
+        //숫자 리터럴  1, 1.2, 0.35, -4 등등
+        //문자 리터럴 '125', '15125'
+        //boolean, null, undefine
+        //객체 리터럴은 objcet 리터럴 {k:v, k:v...}
+        //배열 리터럴 {el, el, ...}
+        //정규식 리터럴 /정규식 표현/
+        //함수 리터럴 function 이름 (인자) {  }
+
+        /*hashmap  hash + map  ->  hashfunction을 이용하는 map의 자료구조
+        hashfuntion은 숫자가 아닌 것을 숫자로 바꾸는 함수, 
+        바꾼 그 값은 각각 모두 달라야하고 똑같은걸 바꾸면 항상 같은 값이 나와야함*/
+        var test = {"f":"function", "b" : "boolean",
+            n: "number", //여기서 n은 자동 문자열로 처리됨
+            "0":"aaa", "1":"bbb", "2":"ccc","3":"ddd",
+            "a0":"aaa", "a1":"bbb", "a2":"ccc","a3":"ddd"};
+        //0을 숫자가 아닌 키로 쓰려면 큰따옴표, 하지만 test.0은 안됨 -> 대괄호사용
+        //test[식=값=>문자열로 변환]
+        test.abc = 1234;
+        console.log(test.abc, test.f, test.b, test.n, test[0], test[1-1], test['0']);
+        //0을 키로 쓰려면 대괄호 써야함. (1-1), '0'도 가능
+
+        for(var i = 0; i < 4; i++){
+            console.log(test[i]);
+        }
+        for(var i = 0; i < 4; i++){
+            console.log(test['a'+i]);
+        }//이처럼 for문과 합치기 위해 대괄호 연산을 사용하기도 한다.
+        </script>
+</body>
+</html>
