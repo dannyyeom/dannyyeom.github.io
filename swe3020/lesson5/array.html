@@ -104,6 +104,19 @@
         inner(ola, olb)
     };
     outer(1,2);
+
+    var check = 100;
+    var outer2 = function(){
+        var check = 50;
+        var inner = function(){
+            var check = 10;
+            console.log(check);
+        }
+        inner();
+    }
+    outer2();
+    //check = 10을 지우면 50, 50을 지우면 위에 100으로 값이 나옴.
+    //스코프는 가까운 부분부터 계속 찾아서 없으면 global까지 찾고 없으면 죽여버림.
 </script>
 </body>
 </html>

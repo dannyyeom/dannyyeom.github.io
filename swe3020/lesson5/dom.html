@@ -1,0 +1,82 @@
+<html>
+<head></head>
+<body>
+    <p id="test">data</p>
+    <div>
+        <div>inner</div>
+    </div>
+<script>
+    //DOM = document object model
+    //html 문서를 object model로 만드는 것
+    //재현하고 싶은 형태까지만 재현하는 것
+
+    /*var html = new HTML();
+    var head = new HEAD();
+    var body = new BODY();
+    html.appendChild(head);
+    html.appendChild(body);
+
+    var p = new P();
+    var div = new DIV();
+    var div2 = new DIV('inner');
+    div.appendChild(div2);
+    div.appendChild(p);
+    div.appendChild(div);
+
+    body = html.getItem(1);
+    div = body.getItem(1);
+    innerDiv = div.getItem(0);
+    innerDiv.html == 'inner';
+    바디에 있는 애들을 가상으로 재현해본 것*/
+
+    //DOM = document object model
+    var body = document.body;
+    console.log(body.children[1].children[0].innerHTML);
+    console.log(document.getElementsByTagName("div"));
+    console.log(document.getElementById("test").innerHTML = "안녕하세요");
+
+    var panel = document.getElementById("test");
+    var log = function(data){
+        panel.innerHTML = data;
+    };
+    log("hello DOM");
+    
+    var brightness = function(color){
+        panel.style.backgroundColor = "rgb("+color+","+color+","+color+")";
+    };
+
+    //panel.addEventListener(이벤트명, 함수);
+    var msg = "hello";
+    panel.addEventListener("click", function(event){
+        alert(msg);
+    });
+
+    (function(){
+        var brighteness = function(){
+            panel.style.backgroundColor = "rgb(200,200,200)";
+        };
+        palne.addEventListener("mouseover", function(event){
+            brighteness(200);
+        });
+    })();//즉시실행함수
+
+    panel.addEventListener("mouseover", function(event){
+        brighteness(100);
+    });
+    panel.addEventListener("mouseout", function(event){
+        brightness(255);
+    });
+    /*
+    var count = 0;
+    setInterval(function(){
+        if(count<255){
+            count++;
+        }else count=0;
+        log(count);
+    },100)
+    */
+
+    //BOM - browser object model
+</script>
+</body>
+</html>

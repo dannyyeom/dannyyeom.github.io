@@ -1,0 +1,59 @@
+<html>
+<head></head>
+<body>
+<script>
+    //프로토타입  prototype
+    //클래스
+    //Student("danny", 1);
+    //console.log(name, grade);
+    //모든 함수는 class의 후보
+    var Student = function(name, grade){
+        if(this instanceof Student){
+            this.name = name;  
+            this.grade = grade;
+            this.display = function(){
+                console.log(this.name + " : "+ this.grade);
+            };
+        }else{
+            return new Student(name, grade);
+        }
+    };
+    Student.prototype = function(){};
+    Student.prototype = new Person();
+    Student.prototype.display = function(){
+        console.log(this.name + " :: "+ this.grade);
+    };
+
+    class Student extends Person{
+        static void action(){}
+        String name;
+        int grade;
+        public Student (name, grade){
+            this.name = name;
+            this.grade = grade;
+        }
+        
+    }
+
+    //console.log(name, grade); 이제 그냥 이렇게만 쓰면 에러
+    //console.log(student.name, student.grade);
+    //console.log(student);
+    //console.log(student instanceof Student);//boolean값이 나옴.(true)
+
+    //단지 new를 붙여서 사용하면 생성자로 작동하고 그냥 호출하면 함수로 작동할 뿐이다.
+    /*var a = new Array();
+    var b = Array();
+    var c = new Date();
+    var d = Date();
+    var e = new Object();
+    var f = Object();*/
+
+
+    class Extended extends Base{}
+
+    var Base = function(){};
+    var Extended = function(){};
+    Extended.prototype = new Base();//자바스크립트의 상속 방법
+</script>
+</body>
+</html>
