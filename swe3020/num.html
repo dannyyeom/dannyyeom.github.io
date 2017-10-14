@@ -1,0 +1,36 @@
+
+
+<html>
+        <head></head>
+            <script>
+                var comNum = 61;
+                var nGuess = 0;
+                
+                function guess(){
+                    var result = "";
+                    var number = parseInt(document.getElementById("user").value);
+                    nGuess++;
+                    
+                    if(number == comNum) result = "오 맞았네";
+                    else if (number < comNum) result = "낮다 자식아";
+                    else result = "높아 자식아";
+        
+                    document.getElementById("result").value = result;
+                    document.getElementById("guesses").value = nGuess;
+                    return true;
+                }
+            </script>
+            <body>
+                <h2>숫자를 맞춰라 자식아</h2>
+                숫자를 맞추라고. 1~100이다.
+                <form>
+                    숫자:
+                    <input type="text" id="user" size="7">
+                    <input type="button" value="과연?" onclick="guess();">
+                    몇번했냐?
+                    <input type="text" id = "guesses" size="5">
+                    힌트다:
+                    <input type="text" id="result" size="15">
+                </form>
+            </body>
+        </html>
