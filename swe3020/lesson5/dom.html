@@ -42,7 +42,7 @@
     log("hello DOM");
     
     var brightness = function(color){
-        panel.style.backgroundColor = "rgb("+color+","+color+","+color+")";
+        panel.style.backgroundColor = "rgb(" + color + "," + color + "," + color + ")";
     };
 
     //panel.addEventListener(이벤트명, 함수);
@@ -55,13 +55,13 @@
         var brighteness = function(){
             panel.style.backgroundColor = "rgb(200,200,200)";
         };
-        palne.addEventListener("mouseover", function(event){
-            brighteness(200);
+        panel.addEventListener("mouseover", function(event){
+            brighteness();
         });
     })();//즉시실행함수
 
     panel.addEventListener("mouseover", function(event){
-        brighteness(100);
+        brightness(100);
     });
     panel.addEventListener("mouseout", function(event){
         brightness(255);
