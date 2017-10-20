@@ -1,0 +1,32 @@
+<html>
+<head></head>
+<body>
+    <input type="text" id="data" value="100">
+    <div id = "message"></div>
+    <!--<img src="aa.png" id="img1" a="10">-->
+<script>
+    /*var img = document.getElementById("img1");
+    console.log(img.src, img.id, img.a);*/
+    var target = document.getElementById("data");
+    var message = document.getElementById("message");
+    var solution = 37;
+    var test = function(){
+        var result = "맞다.";
+        try {
+            var x = target.value;
+            if(x=="") throw "빈값";//여기서부터 3줄로 x를 숫자로 확실히 바꿈.->배타성 확보
+            else if(x==isNaN(x)) throw "숫자가 아님";
+            else x = Number(x);
+
+            if(x>solution) throw "크다.";
+            else if(x<solution) throw "작다.";
+
+        } catch (e) {
+            result = e;
+        }
+        message.innerHTML = result;
+    };
+    target.onkeyup = test;
+</script>
+</body>
+</html>
