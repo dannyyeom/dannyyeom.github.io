@@ -1,0 +1,43 @@
+<html>
+    <head></head>
+    <body>
+        <section class="testover">
+            <h2></h2>
+            <div></div>
+        </section>
+        <script
+            src="http://code.jquery.com/jquery-3.2.1.js"
+            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+            crossorigin="anonymous"></script>
+        <script>
+            var model = {
+                title:{
+                    over:"test overed",
+                    out:"test"
+                },
+                count:0
+            };
+            $(".testover").click(function(e){
+                e.stopImmediatePropagation();
+                var children = $(e.currentTarget).children();
+                $(children[0]).html(model.title.over);
+                $(children[1]).html(model.count++);
+            })
+            $(".testover").click(function(e){
+                e.stopImmediatePropagation();
+                var children = $(e.currentTarget).children();
+                $(children[0]).html(model.title.over);
+            });
+            /*var mouseout;
+            $(".testover").mouseout(mouseout = function(e){
+                var children = $(e.target).children;
+                $(children[0]).html(model.title.over);
+            });이거는 바로 위 함수와 동일, 이렇게 더 많이 씀(짧아서)*/
+            var init = function(){
+                $($(".testover").children()[0]).html(model.title.out);
+            };
+            init();
+
+        </script>
+    </body>
+</html>

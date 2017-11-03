@@ -1,0 +1,32 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <button id="btn">show it!</button>
+        <button id="btn2">galgalgal</button>        
+        <img id = "dog" style = "display:none; position:absolute"
+        src ="http://cdn2-www.dogtime.com/assets/uploads/gallery/golden-retriever-dogs-and-puppies/golden-retriever-dogs-puppies-3.jpg">
+        <img id = "pin" style = "display:none; position:absolute"
+        src = "https://i.ytimg.com/vi/dbKCX39iMg0/hqdefault.jpg">
+        <script
+        src="http://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+        crossorigin="anonymous"></script>
+        <script>
+            $("#btn").click(function(e){
+                $("#dog")
+                .show(1500)
+                .animate({left:'200px'})
+                .animate({'border-radius':'50%'},1000)
+                .hide(1000);
+            });
+            $("#btn2").click(function(e){
+                $("#pin")
+                .show(1500)
+                .animate({left:'200px'})
+                .animate({'border-radius':'50%'},1000)
+                .hide(1000);
+            });
+        </script>
+    </body>
+</html>
