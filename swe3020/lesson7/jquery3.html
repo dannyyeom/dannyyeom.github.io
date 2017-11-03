@@ -4,6 +4,7 @@
     <body>
         <button id="btn">show it!</button>
         <button id="btn2">galgalgal</button>        
+        <button id="btn3">change it!</button>        
         <img id = "dog" style = "display:none; position:absolute"
         src ="http://cdn2-www.dogtime.com/assets/uploads/gallery/golden-retriever-dogs-and-puppies/golden-retriever-dogs-puppies-3.jpg">
         <img id = "pin" style = "display:none; position:absolute"
@@ -26,6 +27,9 @@
                 .animate({left:'200px'})
                 .animate({'border-radius':'50%'},1000)
                 .hide(1000);
+            });
+            $("#btn3").click(function(e){
+                $("#dog").attr("src", "http://cdn2-www.dogtime.com/assets/uploads/gallery/golden-retriever-dogs-and-puppies/golden-retriever-dogs-puppies-3.jpg")
             });
         </script>
     </body>
