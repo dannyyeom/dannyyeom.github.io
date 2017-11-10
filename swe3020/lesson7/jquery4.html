@@ -16,10 +16,13 @@
                         }
                     }
                 }
-                request.open("GET", "jquery.html?a=3&b=5");
-                request.send();
+                /*request.open("GET", "jquery.html?a=3&b=5");
+                request.send();*/ //GET방식
+
+                request.open("POST", "jquery.html");
+                request.send("?a=3&b=5");//POST방식
                 
-        
+
                 $.get("jquery.html", {a:5, b:3}, function(data,status){
                     console.log(data);
                 });
