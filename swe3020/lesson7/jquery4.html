@@ -7,7 +7,7 @@
             integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
             crossorigin="anonymous"></script>
             <script>
-                /*
+                
                 var request = new XMLHttpRequest();
                 request.onreadystatechange = function(){
                     if(request.readyState==4){
@@ -16,12 +16,18 @@
                         }
                     }
                 }
-                request.open("GET", "https://dannyyeom.github.io/swe3020/lesson7/jquery.html");
+                request.open("GET", "jquery.html?a=3&b=5");
                 request.send();
-                */
+                
+        
                 $.get("jquery.html", {a:5, b:3}, function(data,status){
                     console.log(data);
                 });
+
+                $.get("jquery.html", {a:5, b:3}).then(function(data,status){
+                    console.log(data);
+                });
+
                 /*  http:// www.naver.com  /index.html  ?a=3&b4       #abcdee
                    scheme       domain       pathname   querystring     hash  */
             </script>
