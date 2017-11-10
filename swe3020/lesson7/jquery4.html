@@ -21,15 +21,29 @@
 
                 request.open("POST", "jquery.html");
                 request.send("?a=3&b=5");//POST방식
-                
 
-                $.get("jquery.html", {a:5, b:3}, function(data,status){
+                request.open("POST", "jquery.html");
+                //request.send("userid=dannyyeom&age=24&level=1"); 원래 기본 jquery 방식
+                request.send(JSON.stringify(member));
+
+                $.post("jquery.html", {a:5, b:3}, function(data,status){
                     console.log(data);
                 });
 
-                $.get("jquery.html", {a:5, b:3}).then(function(data,status){
+                $.post("jquery.html", JSON.stringify({a:5, b:3}), function(data,status){
                     console.log(data);
                 });
+
+                var el = $('#id');
+                $.get("sample.html", function(data,status){
+                    el.html($(data).select(#myPara).html());
+                });
+
+                $('#id').load("jquery.html",{a:3, b:5});
+
+                /*$.get("jquery.html", {a:5, b:3}).then(function(data,status){
+                    console.log(data);
+                });*/
 
                 /*  http:// www.naver.com  /index.html  ?a=3&b4       #abcdee
                    scheme       domain       pathname   querystring     hash  */

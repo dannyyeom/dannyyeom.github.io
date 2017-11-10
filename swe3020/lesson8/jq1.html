@@ -1,0 +1,32 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <script
+        src="http://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+        crossorigin="anonymous"></script>
+        <script>
+        var input = document.createElement("input");
+        input.name = "test";
+        input.type = "text";
+        input.value = "test";
+        document.body.appendChild(input);
+
+        var a = $('<input type = "text" name = "test2" value = "test2"/>');
+        document.body.appendChild(a[0]);
+        
+        var obj = {
+            "a":27,
+            "b":new Date()
+        };
+        //json은 그냥 에러가 나면 죽어버리기 때문에 try-catch로 막는다.
+        var json= '{"a":3, "b":5}';
+        try{
+            console.log(JSON.parse(json).b);
+        }catch(e){
+            console.log(e);
+        }
+        </script>
+    </body>
+</html>
