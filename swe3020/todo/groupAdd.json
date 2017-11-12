@@ -1,0 +1,13 @@
+{
+    "result":"ok",
+    "data":[
+        {
+            "id":"ga",
+            "name":"새 목록",
+            "icon":"plus",
+            "font-color":"blue",
+            "count":0,
+            "onclick":"AddGroup()"
+        }
+    ]
+}

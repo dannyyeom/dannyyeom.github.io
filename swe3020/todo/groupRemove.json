@@ -1,0 +1,12 @@
+{
+    "result":"ok",
+    "data":[
+        {
+            "id":"gr",
+            "name":"목록 삭제",
+            "color":"gray",
+            "icon":"trashcan",
+        }
+    ]
+
+}

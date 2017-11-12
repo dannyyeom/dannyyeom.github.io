@@ -1,0 +1,12 @@
+{
+    "result":"ok",
+    "data":[
+        {
+            "id":"gt",
+            "name":"테마 변경",
+            "color":"gray",
+            "icon":"task"
+        }
+    ]
+
+}

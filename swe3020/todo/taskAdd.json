@@ -1,0 +1,14 @@
+{
+    "result":"ok",
+    "data":[
+        {
+            "id":"ta",
+            "name":"새 목록",
+            "icon":"circle",
+            "color":"gray",
+            "font-color":"gray",
+            "count":0,
+            "onclick":"AddTask()"   
+        }        
+    ]
+}
