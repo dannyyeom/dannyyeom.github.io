@@ -2,12 +2,25 @@
     "result":"ok",
     "data":[
         {
-            "id":"ge",
-            "name":"목록 이름 바꾸기",
-            "color":"gray",
-            "icon":"pencil",
+            "id":1,
+            "name":"오늘 할 일",
+            "color":"blue",
+            "icon":"sun",
+            "count":0
+        },
+        {
+            "id":2,
+            "name":"To-Do",
+            "color":"blue",
+            "icon":"home",
+            "count":0            
+        }
+        {
+            "id":3, 
+            "name":"ㄸㄸ", 
+            "color":"green", 
+            "icon": "list", 
             "count":0
         }
     ]
-
 }

@@ -15,6 +15,27 @@
             "icon":"home",
             "count":0            
         }
+        {
+            "id":3, 
+            "name":"ㄸㄸ", 
+            "color":"green", 
+            "icon": "list", 
+            "count":0
+        },
+        {
+            "id":3, 
+            "name":"ㅇㅋ", 
+            "color":"red", 
+            "icon": "list", 
+            "count":0
+        },
+        {
+            "id":3, 
+            "name":"ㅎㅎ", 
+            "color":"blue", 
+            "icon": "list", 
+            "count":
+        }
     ]
 
 }

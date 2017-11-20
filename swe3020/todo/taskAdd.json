@@ -3,12 +3,12 @@
     "data":[
         {
             "id":"ta",
-            "name":"새 목록",
-            "icon":"circle",
+            "name":"",
+            "list":"To-Do",
+            "alarm":"circle",
             "color":"gray",
             "font-color":"gray",
-            "count":0,
-            "onclick":"AddTask()"   
+            "Due":"Today",
         }        
     ]
 }

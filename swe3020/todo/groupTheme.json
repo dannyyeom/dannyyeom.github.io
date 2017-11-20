@@ -1,12 +1,70 @@
 {
-    "result":"ok",
-    "data":[
+    "theme": [
         {
-            "id":"gt",
-            "name":"테마 변경",
-            "color":"gray",
-            "icon":"task"
+            "tid":1, 
+            "theme": "mountain",
+            "selected": "True"
+        },
+        {
+            "tid":5, 
+            "theme": "tower",
+            "selected": "False"
+        },
+        {
+            "tid":2, 
+            "theme": "campingcar",
+            "selected": "False"
+        },
+        {
+            "tid":4, 
+            "theme": "airplane",
+            "selected": "False"
+        },
+        {
+            "tid":3, 
+            "theme": "house",
+            "selected": "False"
+        },
+        {
+            "tid":6, 
+            "theme": "none",
+            "selected": "False"
+        }
+    ],
+
+    "color": [
+        {
+            "id":1, 
+            "theme": "blue",
+            "selected": "False"
+
+        },
+        {
+            "id":2, 
+            "theme": "orange",
+            "selected": "False"
+
+        },
+        {
+            "tid":3, 
+            "theme": "violet",
+            "selected": "False"
+
+        },
+        {
+            "tid":4, 
+            "theme": "green",
+            "selected": "True"
+
+        },
+        {
+            "tid":5, 
+            "theme": "skyblue",
+            "selected": "False"
+
         }
     ]
+    
+    
 
 }

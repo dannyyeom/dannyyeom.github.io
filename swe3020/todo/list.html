@@ -1,0 +1,50 @@
+<html>
+<head></head>
+<body>
+    <style>
+        ul{list-style:none}
+    </style>
+            
+    <ul id = "list"></ul>
+    <input type="button" id = "addList" value="+ 새 목록">
+    <script
+    src = "http://code.jquery.com/jquery-3.2.1.min.js"
+    integrity = "sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+
+
+    <script>
+    $.get("https://dannyyeom.github.io/swe3020/todo/groupList.json",function(display, status){
+        var arr = display.data;
+        var list = "";
+        for(var i = 0; i<arr.length; i++){
+            if (arr[i].icon=="home"){
+            list += "<li>"+ '<span style="color:' + arr[i].color + '">&#9750;</span>' + arr[i].name + " " + arr[i].count + "</li>"
+        }else if(arr[i].icon=="sun"){
+            list += "<li>"+ '<span style="color:' + arr[i].color + '">&#9788;</span>' + arr[i].name + " " + arr[i].count+ "</li>"
+        }else if(arr[i].icon=="list"){
+            list += "<li>"+ '<span style="color:' + arr[i].color + '">&#9788;</span>' + arr[i].name + " " + arr[i].count+ "</li>"
+        }
+        else{
+            list += "<li>"+ '<span style="color:' + arr[i].color + '">&#9776;</span>' + arr[i].name + " " + arr[i].count + "</li>"
+        }
+        }
+        $('#list').html(list);
+        $('#addList').click(function(){
+            var newList = '제목 없는 목록';
+            var addList = prompt('새 목록', newList)            
+            $.post("https://dannyyeom.github.io/swe3020/todo/groupList.json",
+             {
+            "id": arr.length, 
+            "name": addList, 
+            "color": "blue", 
+            "icon": "list", 
+            "count": 0
+            },
+             function(data) {
+            });  
+        });
+        });
+        </script>
+</body>
+</html>

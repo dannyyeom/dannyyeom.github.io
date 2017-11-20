@@ -3,10 +3,10 @@
     "data":[
         {
             "id":"tl",
-            "name":"Input()",
-            "color":"gray",
-            "icon":"circle",
-            "count":0
+            "name":"",
+            "list":"To-do",
+            "Due":"Today",
+            "check":"none"
         }
     ]
 }
