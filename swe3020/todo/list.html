@@ -44,24 +44,21 @@
         });
         });
 
-        function select(item){
-                if (item == "sun"){
-                    return '\u263c';
-                }else if(item == "home" ){
-                    return '\u2302';
-                }else{
-                    return '\u2630';
-                }
+        $('#tl').click(function(){
+            var taskarr = result.data;
+            var tasklist="";                
+            for(var i = 0; i<taskarr.length; i++){
+                tasklist += "<li>"+ "<span>"+taskarr[0].name+"</span>"+"</li>"
             }
-            $(document).on("click","li",function(){
-                $.get("https://dannyyeom.github.io/swe3020/todo//taskList.json",function(result,data){
-                var taskarr = result.data;
-                var tasklist="";
-                for(var i = 0; i<taskarr.length; i++){
-                    tasklist += "<li>"+ "<span>"+taskarr[0].name+"</span>"+"</li>"
-                }
-                $('#list').html(tasklist);
-            })
+        $.post("https://dannyyeom.github.io/swe3020/todo//taskList.json",
+        {
+            "id": tl,
+            "name": tasklist,
+            "list":To-do,
+            "Due":"Today",
+            "check":"none"
+        })
+        $('#list').html(tasklist);
             })
            
         </script>
