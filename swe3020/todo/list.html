@@ -5,16 +5,16 @@
         ul{list-style:none}
     </style>
     <ul id = "list"></ul>
-    <input type="button" id = "addList" value="+ 새 목록">
+    <input type="button" id = "al" value="+ 새 목록">
     <script
     src = "http://code.jquery.com/jquery-3.2.1.min.js"
     integrity = "sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>
 
-
     <script>
-    $.get("https://dannyyeom.github.io/swe3020/todo/groupList.json",function(display, status){
-        var arr = display.data;
+    $.get("https://dannyyeom.github.io/swe3020/todo/groupList.json",function(result, data){
+        console.log(result.data[0]);
+        var arr = result.data;
         var list = "";
         for(var i = 0; i<arr.length; i++){
             if (arr[i].icon=="home"){
@@ -27,7 +27,7 @@
             }
         }
         $('#list').html(list);
-        $('#addList').click(function(){
+        $('#al').click(function(){
             var newList = '제목 없는 목록';
             var addList = prompt('새 목록', newList)            
             $.post("https://dannyyeom.github.io/swe3020/todo/groupList.json",
@@ -39,9 +39,31 @@
             "count": 0
             },
              function(data) {
+
             });  
         });
         });
+
+        function select(item){
+                if (item == "sun"){
+                    return '\u263c';
+                }else if(item == "home" ){
+                    return '\u2302';
+                }else{
+                    return '\u2630';
+                }
+            }
+            $(document).on("click","li",function(){
+                $.get("https://dannyyeom.github.io/swe3020/todo//taskList.json",function(result,data){
+                var taskarr = result.data;
+                var tasklist="";
+                for(var i = 0; i<taskarr.length; i++){
+                    tasklist += "<li>"+ "<span>"+taskarr[0].name+"</span>"+"</li>"
+                }
+                $('#list').html(tasklist);
+            })
+            })
+           
         </script>
 </body>
 </html>
