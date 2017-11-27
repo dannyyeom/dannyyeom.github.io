@@ -5,62 +5,85 @@
         ul{list-style:none}
     </style>
     <ul id = "list"></ul>
-    <input type="button" id = "al" value="+ 새 목록">
+    <ul id = "tasklist"></ul>
+    <input type="button" id = "button" value="+ 새 목록">
     <script
-    src = "http://code.jquery.com/jquery-3.2.1.min.js"
+    src = "https://code.jquery.com/jquery-3.2.1.min.js"
     integrity = "sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>
 
     <script>
-    $.get("https://dannyyeom.github.io/swe3020/todo/groupList.json",function(result, data){
-        console.log(result.data[0]);
+    $.get("https://dannyyeom.github.io/swe3020/todo/groupList.json",function(result, status){
         var arr = result.data;
         var list = "";
-        for(var i = 0; i<arr.length; i++){
-            if (arr[i].icon=="home"){
-                list += "<li>"+ '<span style="color:' + arr[i].color + '">&#9750;</span>' + arr[i].name + " " + arr[i].count + "</li>"
-            }else if(arr[i].icon=="sun"){
-                list += "<li>"+ '<span style="color:' + arr[i].color + '">&#9788;</span>' + arr[i].name + " " + arr[i].count+ "</li>"
-            }
-            else{
-                list += "<li>"+ '<span style="color:' + arr[i].color + '">&#9776;</span>' + arr[i].name + " " + arr[i].count + "</li>"
-            }
+        console.log(result.data[0]);
+        
+        var groupPrint = function(gl,list){
+            if(gl=null) return;
+            list="";
+            for(var i = 0; i<gl.length; i++){
+                if (gl[i].icon=="home"){
+                    list += '<li class = "addTask">'+ '<span style="color:' + gl[i].color + '">&#9750;</span>' + gl[i].name + " " + gl[i].count + "</li>"
+                }else if(gl[i].icon=="sun"){
+                    list += '<li class = "addTask">'+ '<span style="color:' + gl[i].color + '">&#9788;</span>' + gl[i].name + " " + gl[i].count + "</li>"
+                }
+                else{
+                    list += '<li class = "addTask">'+ '<span style="color:' + gl[i].color + '">&#9776;</span>' + gl[i].name + " " + gl[i].count + "</li>"
+                }
         }
         $('#list').html(list);
-        $('#al').click(function(){
-            var newList = '제목 없는 목록';
-            var addList = prompt('새 목록', newList)            
-            $.post("https://dannyyeom.github.io/swe3020/todo/groupList.json",
-            {
+        }
+    
+        var taskPrint = function(gl,list,name){
+            if(gl == null) return;
+            list = ""
+            for(var i = 0; i<gl.length; i++){
+                if (arr[i].list == name){
+                if (arr[i].check == true){
+                list += "<li>" + '&#9745;' + " " + gl[i].name + "</li>" 
+                }else{
+                    list += "<li>" + '&#9744;' + " " + gl[i].name + "</li>"
+                }
+                }
+                else{
+                    continue;
+                }
+            }
+            $('#tasklist').html(list);
+        }
+
+
+        var addGroup(function(){
+            $('#button').click(function(){
+                var newList, addList;
+                newList = '제목 없는 목록';
+                addList = prompt('새 목록', newList)        
+            })
+            arr[arr.length] = { 
             "id": arr.length, 
-            "name": addList, 
+            "name": a , 
             "color": "blue", 
             "icon": "list", 
             "count": 0
-            },
-             function(data) {
-
-            });  
-        });
-        });
-
-        $('#tl').click(function(){
-            var taskarr = result.data;
-            var tasklist="";                
-            for(var i = 0; i<taskarr.length; i++){
-                tasklist += "<li>"+ "<span>"+taskarr[0].name+"</span>"+"</li>"
             }
-        $.post("https://dannyyeom.github.io/swe3020/todo//taskList.json",
-        {
-            "id": tl,
-            "name": tasklist,
-            "list":To-do,
-            "Due":"Today",
-            "check":"none"
-        })
-        $('#list').html(tasklist);
-            })
-           
+        list = ""
+        groupPrint(arr, list);
+            });
+        
+        });
+        groupPrint(arr, list);
+        addGroup();
+        moretask = function(){
+             $('.addTask').click(function(){
+                $.get("https://dannyyeom.github.io/swe3020/todo/taskList.json", function(result, status){
+                    tasklist = ""
+                    taskPrint(result.data, tasklist, li[i].name);
+                 });
+                });
+        }
+        moretask();
+
+ 
         </script>
 </body>
 </html>

@@ -6,35 +6,35 @@
             "name":"오늘 할 일",
             "color":"blue",
             "icon":"sun",
-            "count":0
+            "count":1
         },
         {
             "id":2,
             "name":"To-Do",
             "color":"blue",
             "icon":"home",
-            "count":0            
+            "count":3
         }
         {
             "id":3, 
             "name":"ㄸㄸ", 
             "color":"green", 
             "icon": "list", 
-            "count":0
+            "count":4
         },
         {
             "id":3, 
             "name":"ㅇㅋ", 
             "color":"red", 
             "icon": "list", 
-            "count":0
+            "count":6
         },
         {
             "id":3, 
             "name":"ㅎㅎ", 
             "color":"blue", 
             "icon": "list", 
-            "count":
+            "count":2
         }
     ]
 
