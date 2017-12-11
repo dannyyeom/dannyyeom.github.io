@@ -2,10 +2,24 @@
     "result":"ok",
     "data":[
         {
-            "id":"ga",
-            "name":"새 목록",
-            "icon":"plus",
+            "id":"0",
+            "name":"오늘 할 일",
+            "icon":"sun",
             "color":"blue",
+            "count":0,
+        },
+        {
+            "id":"1",
+            "name":"제목 없음",
+            "icon":"moon",
+            "color":"green",
+            "count":0,
+        },
+        {
+            "id":"2",
+            "name":"제목 없음2",
+            "icon":"moon",
+            "color":"green",
             "count":0,
         }
     ]

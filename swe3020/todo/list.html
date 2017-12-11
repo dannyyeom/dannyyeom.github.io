@@ -1,89 +1,73 @@
 <html>
-<head></head>
-<body>
-    <style>
-        ul{list-style:none}
-    </style>
-    <ul id = "list"></ul>
-    <ul id = "tasklist"></ul>
-    <input type="button" id = "button" value="+ 새 목록">
-    <script
-    src = "https://code.jquery.com/jquery-3.2.1.min.js"
-    integrity = "sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous"></script>
-
+    <head>
+            <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+            <style>
+                #header div {vertical-align:middle;display:inline-block;}
+                #title {
+                    width: -moz-calc(100% - 120px);
+                    width: -webkit-calc(100% - 120px);
+                    width: -o-calc(100% - 120px);
+                    width: calc(100% - 120px);
+                    }
+                .task {height:30px}
+                a {text-decoration:none;}
+                .name {margin-left:15px;line-height:30px;display:block;float:left;position:relative;}
+                
+            </style>
+    </head>
+    <body>
+        <div id="header" style="width:100%;height:63px">
+            <div style="width:40px;text-align:center;font-size:35pt"><a href="https://dannyyeom.github.io/swe3020/todo/index.html"><span>&#9776</span></a></div>
+            <div id="title" style="text-align:left;margin:auto;font-size:35pt;padding-left:15px;"></div>
+            <div style="width:40px;height:100%;">
+                <img style="margin-left:14px;height:100%" src="https://openclipart.org/image/2400px/svg_to_png/241758/Menu-Circles.png" alt="option menu icon">
+            </div>
+        </div>
+        <div id="tasks">
+        </div>
+        <div id="addTask" style="position:fixed;bottom:15px;right:15px;width:50px;height:50px">
+            <img style="width:50px;height:50px" src="https://cdn0.iconfinder.com/data/icons/round-ui-icons/512/add_blue.png" alt="plus button">
+        </div>
+    </body>
+    <script src="todo.js"></script>
     <script>
-    $.get("https://dannyyeom.github.io/swe3020/todo/groupList.json",function(result, status){
-        var arr = result.data;
-        var list = "";
-        console.log(result.data[0]);
-        
-        var groupPrint = function(gl,list){
-            if(gl=null) return;
-            list="";
-            for(var i = 0; i<gl.length; i++){
-                if (gl[i].icon=="home"){
-                    list += '<li class = "addTask">'+ '<span style="color:' + gl[i].color + '">&#9750;</span>' + gl[i].name + " " + gl[i].count + "</li>"
-                }else if(gl[i].icon=="sun"){
-                    list += '<li class = "addTask">'+ '<span style="color:' + gl[i].color + '">&#9788;</span>' + gl[i].name + " " + gl[i].count + "</li>"
-                }
-                else{
-                    list += '<li class = "addTask">'+ '<span style="color:' + gl[i].color + '">&#9776;</span>' + gl[i].name + " " + gl[i].count + "</li>"
+        var loc = location.href.split("?");
+        var loc1 = decodeURI(loc[1]);
+        var temp = loc1.split("=");
+        var title = "<span>"+temp[1]+"</span>";
+        $("#title").append(title);
+        var name = location.search.substr(6);
+        //network("taskList",renderTaskList,location.search.substr(6));
+        //makeTask("https://dannyyeom.github.io/swe3020/todo/taskList.json");
+        var current;
+        function renderTaskList($data){
+            current = $data.data;
+            $("#tasks").empty();
+            var i;
+                for(i=0;i<$data.data.length;i++){
+                    item = current[i];
+                    $("#tasks").append(
+                        '<div class="task">'+'<img class="iconImage" onclick="toggleComplete(this,'+i+')" style="width:30px;height:30px;float:left;" src="'+URLS.icon[item.complete ? 'checked' : 'URLS.icon.unchecked']+ 'alt="'+(item.complete ?'completed':'incompleted')
+                        +'<span class="name">'+item.name+'</span>'
+                        +'</div>'
+                    );
                 }
         }
-        $('#list').html(list);
-        }
-    
-        var taskPrint = function(gl,list,name){
-            if(gl == null) return;
-            list = ""
-            for(var i = 0; i<gl.length; i++){
-                if (arr[i].list == name){
-                if (arr[i].check == true){
-                list += "<li>" + '&#9745;' + " " + gl[i].name + "</li>" 
-                }else{
-                    list += "<li>" + '&#9744;' + " " + gl[i].name + "</li>"
-                }
-                }
-                else{
-                    continue;
-                }
-            }
-            $('#tasklist').html(list);
-        }
-
-
-        var addGroup(function(){
-            $('#button').click(function(){
-                var newList, addList;
-                newList = '제목 없는 목록';
-                addList = prompt('새 목록', newList)        
-            })
-            arr[arr.length] = { 
-            "id": arr.length, 
-            "name": a , 
-            "color": "blue", 
-            "icon": "list", 
-            "count": 0
-            }
-        list = ""
-        groupPrint(arr, list);
-            });
-        
+        function init(){
+            $('#addTask').click(function(){
+            var name = prompt("새 할 일의 이름을 입력하세요.");
+            //network("taskAdd",renderTaskList, name);
+            //makeTask("https://dannyyeom.github.io/swe3020/todo//taskAdd.json");
         });
-        groupPrint(arr, list);
-        addGroup();
-        moretask = function(){
-             $('.addTask').click(function(){
-                $.get("https://dannyyeom.github.io/swe3020/todo/taskList.json", function(result, status){
-                    tasklist = ""
-                    taskPrint(result.data, tasklist, li[i].name);
-                 });
-                });
+        //network("taskList",renderTaskList,location.search.substr(6))
         }
-        moretask();
-
- 
-        </script>
-</body>
+        function toggleComplete(img, i){
+            var item = current[i];
+            network("toggleComplete",renderTaskList,{id:item.tid,complete:complete});            
+        };
+        init()
+    </script>
 </html>

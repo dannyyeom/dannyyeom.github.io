@@ -2,25 +2,18 @@
     "result":"ok",
     "data":[
         {
-            "id":1,
+            "id":0,
             "name":"오늘 할 일",
             "color":"blue",
             "icon":"sun",
             "count":0
         },
         {
-            "id":2,
-            "name":"To-Do",
+            "id":1,
+            "name":"제목 없음",
             "color":"blue",
             "icon":"home",
             "count":0            
-        }
-        {
-            "id":3, 
-            "name":"ㄸㄸ", 
-            "color":"green", 
-            "icon": "list", 
-            "count":0
         }
     ]
 }
